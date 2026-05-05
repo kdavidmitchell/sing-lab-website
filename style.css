@@ -1,14 +1,19 @@
+/* =========================================
+   1. GLOBAL VARIABLES & BASE STYLES
+   ========================================= */
 :root {
-    /* Color Palette */
-    --bg-main: #0d1117;       /* Deep IDE Dark */
-    --bg-card: #161b22;       /* Slightly lighter for contrast */
-    --text-primary: #c9d1d9;  /* Off-white */
-    --text-muted: #8b949e;    /* Gray */
-    --accent: #58a6ff;        /* Code Blue */
-    --accent-hover: #1f6feb;
+    /* Modern Parchment & UC Davis Theme */
+    --bg-main: #FDFBF7;       /* Bright, warm ivory (Main Parchment) */
+    --bg-secondary: #F2EBE1;  /* Slightly deeper cream for contrast */
+    --text-main: #002855;     /* Deep Navy (Aggie Blue) */
+    --text-muted: #3A4F6B;    /* Lighter blue-gray for secondary text */
+    --accent-blue: #004080;   /* Academic Blue */
+    --accent-gold: #B38F00;   /* Refined UC Davis Gold */
+    --border-color: #E0D6C8;  /* Warm, subtle border */
     
     /* Typography */
-    --font-sans: 'Inter', sans-serif;
+    --font-heading: 'Lora', serif;
+    --font-body: 'Inter', sans-serif;
     --font-mono: 'Roboto Mono', monospace;
 }
 
@@ -19,32 +24,135 @@
 }
 
 body {
-    font-family: var(--font-sans);
+    font-family: var(--font-body);
     background-color: var(--bg-main);
-    color: var(--text-primary);
-    line-height: 1.6;
+    color: var(--text-main);
+    line-height: 1.7;
 }
 
-/* Navigation */
+h1, h2, h3 {
+    font-family: var(--font-heading);
+    color: var(--text-main);
+    margin-bottom: 1rem;
+}
+
+/* =========================================
+   1.5 DARK MODE VARIABLES & TOGGLE BUTTON
+   ========================================= */
+
+body.dark-theme {
+    --bg-main: #0D1520;       
+    --bg-secondary: #162032;  
+    --text-main: #E2E8F0;     
+    --text-muted: #94A3B8;    
+    --accent-blue: #60A5FA;   
+    --accent-gold: #C5A059;   /* Softer, antique brass/gold instead of bright yellow */
+    --border-color: #1E293B;  
+}
+
+.theme-btn {
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    border: 2px solid var(--text-main);
+    /* Creates a 50/50 diagonal split */
+    background: linear-gradient(135deg, var(--text-main) 50%, transparent 50%);
+    padding: 0;
+    cursor: pointer;
+    margin-right: 1.5rem;
+    margin-left: auto; /* Pushes it to the right on mobile */
+    transition: transform 0.3s ease, border-color 0.3s ease;
+}
+
+.theme-btn:hover {
+    transform: scale(1.1);
+}
+
+/* Update the circle's colors when in dark mode */
+body.dark-theme .theme-btn {
+    border-color: var(--accent-gold);
+    background: linear-gradient(135deg, var(--accent-gold) 50%, transparent 50%);
+}
+
+/* =========================================
+   DARK MODE: HERO CONTENT OVERRIDES
+   ========================================= */
+.dark-theme .hero-content {
+    /* Converts your Deep Slate background (#0D1520) into a transparent RGBA */
+    background-color: rgba(13, 21, 32, 0.85); 
+}
+
+/* Optional: Make the brackets Syntax Blue in dark mode for an IDE feel */
+.dark-theme .hero-content::before,
+.dark-theme .hero-content::after {
+    color: var(--accent-blue); 
+}
+
+/* =========================================
+   2. UTILITIES & CONTAINERS
+   ========================================= */
+.container {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 4rem 2rem;
+}
+
+/* Replaces inline styles for specific spacing tweaks */
+.pt-0 { padding-top: 0 !important; }
+.pb-2 { padding-bottom: 2rem !important; }
+.mb-4 { margin-bottom: 4rem !important; }
+
+/* Replaces inline styles for empty states and loading messages */
+.text-italic-muted {
+    color: var(--text-muted);
+    font-style: italic;
+}
+
+/* =========================================
+   3. NAVIGATION & HAMBURGER
+   ========================================= */
 nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 1.5rem 5%;
-    background-color: rgba(13, 17, 23, 0.9);
-    position: fixed;
-    width: 100%;
+    background-color: var(--bg-main);
+    border-bottom: 1px solid var(--border-color);
+    position: sticky;
     top: 0;
-    backdrop-filter: blur(10px);
-    border-bottom: 1px solid #30363d;
     z-index: 100;
 }
 
-.logo {
+/* =========================================
+   NAVBAR BRANDING (LOGO & TEXT)
+   ========================================= */
+.nav-brand {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem; /* Space between the image and the text */
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.brand-icon {
+    height: 90px; /* Increased from 36px so it's clearly legible */
+    width: auto;
+    object-fit: contain;
+}
+
+.brand-text {
     font-family: var(--font-mono);
+    font-size: 1.4rem;
     font-weight: 700;
-    font-size: 1.5rem;
-    color: var(--accent);
+    color: var(--text-main);
+    /* Set a fixed width so the navbar doesn't jump around when the text scrambles */
+    min-width: 105px; 
+    display: inline-block;
+}
+
+/* Ensure the text color correctly swaps in Dark Mode */
+.dark-theme .brand-text {
+    color: var(--text-main); 
 }
 
 .nav-links {
@@ -54,88 +162,797 @@ nav {
 }
 
 .nav-links a {
-    color: var(--text-primary);
     text-decoration: none;
-    font-size: 0.9rem;
+    color: var(--text-muted);
     font-weight: 600;
-    transition: color 0.3s;
+    font-size: 0.95rem;
+    transition: color 0.2s ease;
 }
 
 .nav-links a:hover {
-    color: var(--accent);
+    color: var(--accent-gold); 
 }
 
-/* Hero Section */
+/* Highlights the currently active page in the navbar */
+.nav-links a.active {
+    color: var(--accent-gold);
+    font-weight: 600;
+    border-bottom: 2px solid var(--accent-gold);
+}
+
+.hamburger {
+    display: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0.5rem;
+}
+
+.hamburger .bar {
+    display: block;
+    width: 25px;
+    height: 3px;
+    margin: 5px auto;
+    background-color: var(--text-main); 
+    transition: all 0.3s ease-in-out;
+}
+
+.hamburger:hover .bar {
+    background-color: var(--accent-gold);
+}
+
+/* =========================================
+   4. HERO SECTIONS (ALL PAGES)
+   ========================================= */
 .hero {
-    height: 100vh;
-    display: flex;
-    align-items: center;
-    padding: 0 5%;
-    margin-top: 50px;
+    /* Slightly reduced padding */
+    padding: 3rem 1.5rem; 
+    background-color: var(--bg-secondary);
+    border-bottom: 1px solid var(--border-color);
+    text-align: center;
+    
+    /* Subtle Computational Dot Grid */
+    background-image: radial-gradient(var(--text-muted) 1px, transparent 1px);
+    background-size: 24px 24px;
+    background-position: center;
 }
 
 .hero-content {
-    max-width: 800px;
+    display: inline-block;
+    padding: 2rem 4rem; /* Extra side padding to give the brackets room to breathe */
+    position: relative; 
+    
+    /* The Contrast Fix: A frosted background that softens the dots behind the text */
+    background-color: rgba(253, 251, 247, 0.85); /* Your ivory color at 85% opacity */
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+    
+    border-radius: 8px;
+    border: none;
+    box-shadow: none;
 }
 
-h1 {
-    font-size: 4rem;
-    line-height: 1.2;
-    margin-bottom: 1rem;
+/* The Brackets */
+.hero-content::before,
+.hero-content::after {
+    font-family: var(--font-mono);
+    color: var(--accent-gold);
+    font-size: 4.5rem; /* Slightly larger */
+    font-weight: 400; /* Slightly thicker */
+    position: absolute;
+    top: 50%;
+    transform: translateY(-55%);
+    opacity: 0.8; /* Increased from 0.3 so they clearly stand out */
 }
 
-.typewriter-text {
-    color: var(--accent);
+.hero-content::before {
+    content: '{';
+    left: 1rem;
 }
 
-.cursor {
-    animation: blink 1s step-end infinite;
-    color: var(--accent);
+.hero-content::after {
+    content: '}';
+    right: 1rem;
 }
 
-@keyframes blink {
-    50% { opacity: 0; }
+/* Specific modifier for the 404 page */
+.hero.hero-compact {
+    padding: 3rem 2rem; 
+}
+
+.hero h1 {
+    color: var(--text-main);
+    margin-bottom: 0.5rem;
 }
 
 .hero p {
-    font-size: 1.2rem;
     color: var(--text-muted);
-    margin-bottom: 2rem;
-    max-width: 600px;
+    font-family: var(--font-mono); /* Use the mono font for the sub-header */
+    font-size: 0.95rem;
 }
 
-/* Buttons */
-.btn {
-    display: inline-block;
-    padding: 0.8rem 1.5rem;
-    background-color: transparent;
-    color: var(--accent);
-    text-decoration: none;
-    border: 1px solid var(--accent);
-    border-radius: 4px;
+/* =========================================
+   5. INDEX PAGE: RESEARCH TABS
+   ========================================= */
+.tab-container {
+    background-color: var(--bg-main);
+    overflow: hidden;
+    border: 3px solid var(--text-main);
+    border-radius: 2px;
+    box-shadow: 6px 6px 0px var(--accent-gold);
+}
+
+.tab-buttons {
+    display: flex;
+    background-color: var(--bg-secondary);
+    border-bottom: 3px solid var(--text-main);
+}
+
+.tab-btn {
+    flex: 1;
+    background: none;
+    padding: 1rem;
+    font-size: 1rem;
+    font-family: var(--font-heading);
+    font-weight: 600;
+    color: var(--text-muted);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border: none;
+    border-right: 2px solid var(--text-main);
+}
+
+.tab-btn:last-child {
+    border-right: none;
+}
+
+.tab-btn:hover {
+    background-color: #E8DECC;
+}
+
+.tab-btn.active {
+    background-color: var(--bg-main);
+    color: var(--text-main);
+    box-shadow: inset 0 -4px 0 var(--accent-gold); 
+}
+
+.tab-content {
+    display: none;
+    padding: 2.5rem;
+    animation: fadeIn 0.4s ease-in-out;
+}
+
+.tab-content.active {
+    display: block;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(5px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* =========================================
+   6. PEOPLE PAGE: TEAM CARDS
+   ========================================= */
+.team-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.team-card {
+    background-color: var(--bg-main);
+    padding: 2rem;
+    border: 3px solid var(--text-main);
+    border-radius: 2px;
+    box-shadow: 6px 6px 0px var(--accent-gold);
+}
+
+.team-card h3 {
+    color: var(--accent-blue);
+    margin-bottom: 0.5rem;
+}
+
+.role {
     font-family: var(--font-mono);
-    transition: all 0.3s;
+    font-size: 0.85rem;
+    color: var(--accent-gold);
+    margin-bottom: 1rem;
+    display: block;
 }
 
-.btn:hover {
-    background-color: var(--accent);
+.profile-pic {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover; /* Ensures non-square images aren't stretched */
+    border: 3px solid var(--text-main);
+    box-shadow: 4px 4px 0px var(--accent-gold);
+    margin-bottom: 1.5rem;
+    
+    /* Applies the same subtle vintage warmth used on project images */
+    filter: sepia(0.2) contrast(0.95);
+    transition: all 0.3s ease;
+}
+
+.profile-pic:hover {
+    filter: sepia(0) contrast(1);
+    transform: translateY(-2px);
+    box-shadow: 4px 6px 0px var(--accent-gold);
+}
+
+/* Optional: Centers the content inside the team cards for a cleaner directory look */
+.team-card {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* =========================================
+   6.5 CONTACT & SOCIAL ICONS
+   ========================================= */
+.contact-strip {
+    display: flex;
+    justify-content: center; /* Centers both items neatly in the card */
+    align-items: center;
+    gap: 1.5rem; /* Guarantees space between email and socials */
+    flex-wrap: wrap; /* Allows stacking on very small screens to prevent overlap */
+    
+    margin-top: auto; /* Pushes the strip to the bottom of the card */
+    padding-top: 1.2rem;
+    border-top: 1px dashed var(--border-color);
+}
+
+.email-link {
+    font-family: var(--font-mono);
+    font-size: 0.85rem;
+    color: var(--accent-blue);
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+.email-link:hover {
+    color: var(--accent-gold);
+    text-decoration: underline;
+}
+
+.social-icons {
+    display: flex;
+    gap: 0.8rem;
+}
+
+.social-icon svg {
+    width: 18px;
+    height: 18px;
+    fill: var(--text-muted);
+    transition: fill 0.2s ease, transform 0.2s ease;
+}
+
+.social-icon:hover svg {
+    fill: var(--accent-gold);
+    transform: translateY(-2px); /* Slight 'pop' effect on hover */
+}
+
+/* =========================================
+   7. PROJECTS PAGE: PROJECT CARDS
+   ========================================= */
+.project-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 2.5rem;
+    margin-top: 2rem;
+}
+
+.project-card {
+    background-color: var(--bg-main);
+    padding: 2.5rem;
+    border: 3px solid var(--text-main);
+    border-radius: 2px;
+    box-shadow: 6px 6px 0px var(--accent-gold);
+    display: flex;
+    flex-direction: column;
+}
+
+.project-card h3 {
+    color: var(--accent-blue);
+    margin-bottom: 0.5rem;
+    font-size: 1.4rem;
+}
+
+.project-meta {
+    font-family: var(--font-mono);
+    font-size: 0.85rem;
+    color: var(--accent-gold);
+    margin-bottom: 1.5rem;
+    display: block;
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 0.5rem;
+}
+
+.project-card p {
+    flex-grow: 1;
+}
+
+/* =========================================
+   8. PUBLICATIONS PAGE: PUBLICATION LISTS
+   ========================================= */
+
+/* Remove the old .pub-container-box entirely */
+
+.pub-list {
+    list-style: none;
+    margin-top: 1rem;
+    margin-bottom: 3rem; /* Adds space before the next year */
+}
+
+/* Turn each paper into an individual "Catalog Card" */
+.pub-item {
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+    background-color: var(--bg-main);
+    padding: 1.5rem 2rem;
+    border: 2px solid var(--text-main);
+    border-radius: 2px;
+    margin-bottom: 1.5rem;
+    
+    /* A softer shadow for the cards to keep the page from feeling too heavy */
+    box-shadow: 4px 4px 0px var(--border-color); 
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+/* Interactive hover effect so the cards feel alive */
+.pub-item:hover {
+    transform: translateY(-2px);
+    box-shadow: 4px 6px 0px var(--accent-gold);
+}
+
+.pub-title {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: var(--accent-blue);
+    line-height: 1.4;
+}
+
+.pub-authors {
+    color: var(--text-main);
+    font-weight: 600; 
+    font-size: 1rem;
+}
+
+.pub-venue-block {
+    font-size: 0.95rem;
+    color: var(--text-muted);
+}
+
+.pub-venue {
+    font-style: italic; 
+}
+
+.pub-actions {
+    display: flex;
+    gap: 0.8rem;
+    margin-top: 0.8rem;
+    padding-top: 0.8rem;
+    border-top: 1px dashed var(--border-color); /* Subtle divider above links */
+}
+
+.pub-action-btn {
+    font-family: var(--font-mono);
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    text-decoration: none;
+    color: var(--accent-gold);
+    border: 1px solid var(--accent-gold);
+    padding: 0.2rem 0.6rem;
+    border-radius: 2px;
+    transition: all 0.2s ease;
+}
+
+.pub-action-btn:hover {
+    background-color: var(--accent-gold);
     color: var(--bg-main);
 }
 
-/* Container & Sections */
-.container {
-    padding: 5rem 5%;
-    max-width: 1200px;
-    margin: 0 auto;
+/* =========================================
+   9. EVENTS PAGE: SYMPOSIUM CARDS & TIMERS
+   ========================================= */
+.featured-event {
+    background-color: var(--bg-main);
+    padding: 3rem;
+    border: 3px solid var(--text-main);
+    border-radius: 2px;
+    box-shadow: 8px 8px 0px var(--accent-gold);
+    margin-bottom: 4rem;
+    position: relative;
+    overflow: hidden; /* Keeps the watermark inside the card */
 }
 
-.section-title {
+/* The Subtle Watermark */
+.featured-event::after {
+    content: '"';
+    position: absolute;
+    right: 10px;
+    bottom: -120px;
+    font-size: 20rem;
+    font-family: var(--font-heading); /* Serif font makes the quote mark look elegant */
+    color: var(--accent-gold);
+    opacity: 0.05; 
+    pointer-events: none;
+}
+
+.event-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    gap: 2rem;
+    border-bottom: 2px solid var(--text-main);
+    padding-bottom: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.event-title h2 {
+    font-size: 2.5rem;
+    color: var(--accent-blue);
+    margin-bottom: 0.5rem;
+}
+
+.event-meta {
     font-family: var(--font-mono);
-    font-size: 2rem;
-    margin-bottom: 1.5rem;
+    color: var(--accent-gold);
+    font-weight: bold;
+}
+
+.countdown {
+    display: flex;
+    gap: 1rem;
+    text-align: center;
+}
+
+.time-box {
+    background-color: var(--bg-secondary);
+    border: 2px solid var(--text-main);
+    padding: 1rem;
+    min-width: 80px;
+}
+
+.time-box span {
+    display: block;
+    font-family: var(--font-mono);
+    font-size: 1.5rem;
+    color: var(--text-main);
+    font-weight: bold;
+}
+
+.time-box small {
+    font-family: var(--font-heading);
+    font-size: 0.8rem;
+    color: var(--text-muted);
+    text-transform: uppercase;
+}
+
+.speaker-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1.5rem;
+    margin-top: 2rem;
+    padding-top: 2rem;
+    border-top: 1px dashed var(--border-color);
+}
+
+.speaker h4 {
+    color: var(--text-main);
+    margin-bottom: 0.2rem;
+}
+
+.speaker p {
+    font-size: 0.85rem;
     color: var(--text-muted);
 }
 
-.section-title span {
-    color: var(--text-primary);
+/* =========================================
+   10. 404 PAGE: INTERACTIVE TERMINAL
+   ========================================= */
+.story-container {
+    background-color: var(--bg-secondary);
+    padding: 3rem;
+    border: 3px solid var(--text-main);
+    border-radius: 2px;
+    box-shadow: 6px 6px 0px var(--accent-gold);
+    min-height: 300px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+#story-text {
+    font-family: var(--font-heading);
+    font-size: 1.25rem;
+    margin-bottom: 2rem;
+    color: var(--text-main);
+}
+
+.choices {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.choice-btn {
+    background-color: var(--bg-main);
+    color: var(--accent-blue);
+    border: 2px solid var(--accent-blue);
+    padding: 1rem;
+    font-family: var(--font-mono);
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    text-align: left;
+}
+
+.choice-btn:hover {
+    background-color: var(--accent-blue);
+    color: var(--bg-main);
+}
+
+/* =========================================
+   11. SPLIT LAYOUTS & IMAGE FRAMES
+   ========================================= */
+
+/* Two-column grid for the About section */
+.split-layout {
+    display: grid;
+    grid-template-columns: 3fr 2fr; /* Text takes 60%, Image takes 40% */
+    gap: 4rem;
+    align-items: center;
+}
+
+/* Two-column grid for the Research Tabs */
+.tab-split {
+    display: grid;
+    grid-template-columns: 2fr 1fr; /* Text takes 66%, Image takes 33% */
+    gap: 2rem;
+    align-items: start;
+}
+
+/* The Manuscript Image Frame */
+.image-frame {
+    width: 100%;
+    height: 100%;
+    min-height: 250px;
+    object-fit: cover; /* Ensures photos fill the box without stretching */
+    display: block;
+    background-color: var(--border-color); /* Acts as a placeholder color if no image is loaded */
+    border: 3px solid var(--text-main);
+    border-radius: 2px;
+    box-shadow: 6px 6px 0px var(--accent-gold);
+    
+    /* A subtle aesthetic touch: gives images a slight warm tint to match the parchment, which clears on hover */
+    filter: sepia(0.3) contrast(0.95);
+    transition: all 0.3s ease;
+}
+
+.image-frame:hover {
+    filter: sepia(0) contrast(1);
+    transform: translateY(-2px);
+    box-shadow: 6px 8px 0px var(--accent-gold);
+}
+
+/* =========================================
+   12. GLOBAL SYMPOSIUM BANNER
+   ========================================= */
+.symposium-banner {
+    background-color: var(--accent-blue);
+    color: var(--bg-main);
+    text-align: center;
+    padding: 0.8rem 5%;
+    
+    /* Flexbox for centering */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1.5rem;
+    font-family: var(--font-body);
+    font-size: 0.9rem;
+    
+    /* Add relative positioning so the close button can anchor to the right edge */
+    position: relative; 
+    z-index: 101; 
+}
+
+.banner-text strong {
+    font-family: var(--font-heading);
+    color: var(--accent-gold); /* Gold highlight for the symposium name */
+    letter-spacing: 0.5px;
+}
+
+.banner-btn {
+    background-color: var(--accent-gold);
+    color: var(--text-main);
+    text-decoration: none;
+    padding: 0.3rem 0.8rem;
+    font-weight: 600;
+    font-family: var(--font-mono);
+    border-radius: 2px;
+    transition: all 0.2s ease;
+}
+
+.banner-btn:hover {
+    background-color: var(--bg-main);
+    color: var(--text-main);
+}
+
+.close-banner-btn {
+    background: none;
+    border: none;
+    color: var(--bg-main);
+    font-size: 1.5rem;
+    cursor: pointer;
+    
+    /* Absolute positioning removes it from the flex flow, fixing the centering */
+    position: absolute;
+    right: 5%; 
+    transition: transform 0.2s ease;
+}
+
+.close-banner-btn:hover {
+    transform: scale(1.2);
+}
+
+/* Fix the banner colors in dark mode for readability and contrast */
+body.dark-theme .symposium-banner {
+    background-color: #1A2B45; /* A distinct, rich dark navy to separate it from the header's --bg-secondary */
+    color: var(--text-main);   /* Swaps the text to crisp off-white so it is highly readable */
+    border-bottom: 1px solid var(--border-color);
+}
+
+body.dark-theme .symposium-banner .close-banner-btn {
+    color: var(--text-muted); /* Softens the 'X' slightly so it doesn't overpower the text */
+}
+
+body.dark-theme .banner-text strong {
+    color: var(--accent-gold); /* Keeps the muted brass highlight */
+}
+
+/* =========================================
+   13. SYMPOSIUM TIMELINE
+   ========================================= */
+.program-timeline {
+    margin-top: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem; /* This creates the space between the events */
+}
+
+.timeline-item {
+    position: relative;
+    padding-left: 2.5rem; /* Space between the circle/line and the text */
+    display: flex;
+    gap: 2rem;
+}
+
+/* 1. Draw the Connecting Line */
+.timeline-item::after {
+    content: '';
+    position: absolute;
+    
+    /* Perfect horizontal centering: Circle is 14px wide. Line is 2px wide. 
+       (14/2) - (2/2) = 6px offset from the left. */
+    left: 6px; 
+    
+    /* Start exactly at the top of the circle */
+    top: 0.3rem; 
+    
+    /* Height perfectly bridges the item and the 1.5rem gap to the next item */
+    height: calc(100% + 1.5rem); 
+    width: 2px;
+    background-color: var(--accent-gold);
+    z-index: 1; /* Puts the line behind the circle */
+}
+
+/* Hide the line on the very last event so it doesn't dangle */
+.timeline-item:last-child::after {
+    display: none;
+}
+
+/* 2. Draw the Circle */
+.timeline-item::before {
+    content: '';
+    position: absolute;
+    left: 0; 
+    top: 0.3rem; /* Aligns vertically with the text */
+    
+    /* 10px width + 4px border = 14px total width */
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background-color: var(--bg-main);
+    border: 2px solid var(--accent-gold);
+    z-index: 2; /* Keeps the circle sitting on top of the line */
+}
+
+.timeline-item .time {
+    font-family: var(--font-mono);
+    color: var(--accent-gold);
+    font-weight: 700;
+    min-width: 80px;
+}
+
+.timeline-item .session h4 {
+    color: var(--text-main);
+    margin-bottom: 0.2rem;
+    font-size: 1.1rem;
+}
+
+.timeline-item .session p {
+    color: var(--text-muted);
+    font-size: 0.9rem;
+    font-style: italic;
+}
+
+/* =========================================
+   14. MOBILE VIEWPORTS & RESPONSIVE DESIGN
+   ========================================= */
+@media screen and (max-width: 768px) {
+    nav {
+        flex-wrap: wrap;
+        padding: 1rem 1.5rem;
+    }
+
+    .hamburger { display: block; }
+
+    .nav-links {
+        width: 100%;
+        flex-direction: column;
+        align-items: center;
+        gap: 0;
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.4s ease-in-out;
+    }
+
+    .nav-links.active {
+        max-height: 350px; 
+        margin-top: 1rem;
+    }
+
+    .nav-links a {
+        display: block;
+        padding: 1rem;
+        width: 100%;
+        text-align: center;
+        border-top: 1px solid var(--border-color);
+    }
+
+    .hamburger.active .bar:nth-child(2) { opacity: 0; }
+    .hamburger.active .bar:nth-child(1) { transform: translateY(8px) rotate(45deg); background-color: var(--accent-gold); }
+    .hamburger.active .bar:nth-child(3) { transform: translateY(-8px) rotate(-45deg); background-color: var(--accent-gold); }
+
+    .hero h1 { font-size: 2.2rem; }
+    .hero p { font-size: 1.1rem; }
+    .container { padding: 2.5rem 1.5rem; }
+    
+    .tab-buttons { flex-direction: column; }
+    .tab-btn { border-right: none; border-bottom: 2px solid var(--text-main); }
+    .tab-btn:last-child { border-bottom: none; }
+    .tab-btn.active { box-shadow: inset 6px 0 0 var(--accent-gold); }
+    .tab-content { padding: 1.5rem; }
+    
+    .team-grid, .project-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+    
+    .pub-item { padding: 1rem 0; }
+    .pub-container-box { padding: 1.5rem; }
+
+    /* Collapse split layouts into a single column on mobile */
+    .split-layout, 
+    .tab-split {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
 }

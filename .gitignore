@@ -15,3 +15,6 @@ Thumbs.db
 *.njsproj
 *.sln
 *.sw?
+
+# Specific files to ignore
+pubs-working.txt

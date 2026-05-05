@@ -1,0 +1,8 @@
+@inproceedings{treynor_case_2025,
+  title     = {A Case Study on User Perception of Parameterized LLM-Generated Narratives},
+  author    = {Treynor, Nicholas Sloss and McCoy, Joshua},
+  booktitle = {2025 IEEE Conference on Games (CoG)},
+  pages     = {1--7},
+  year      = {2025},
+  doi       = {10.1109/CoG64752.2025.11114155}
+}

@@ -1,0 +1,6 @@
+@inproceedings{sandhu_mice_2022,
+  title     = {MICE in the Machine: Creating a computational model of novelist techniques.},
+  author    = {Sandhu, Arunpreet and McCoy, Joshua},
+  booktitle = {Proceedings of the Intelligent Narrative Technologies Workshop at the AIIDE-23 conference},
+  year      = {2022}
+}

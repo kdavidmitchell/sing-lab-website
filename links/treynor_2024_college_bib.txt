@@ -1,0 +1,10 @@
+@inproceedings{treynor_college_2024,
+  title     = {College Ruled: A Pathfinding Approach to Generative Storytelling},
+  author    = {Treynor, Nicholas Sloss and McCoy, Joshua},
+  booktitle = {Proceedings of the 19th International Conference on the Foundations of Digital Games},
+  publisher = {Association for Computing Machinery},
+  articleno = {15},
+  numpages  = {10},
+  year      = {2024},
+  doi       = {10.1145/3649921.3649994}
+}

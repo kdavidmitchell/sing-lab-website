@@ -3,33 +3,82 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SING Lab | Social Intelligence in Games</title>
+    <title>About | SING Lab</title>
     <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Roboto+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;600&family=Inter:wght@300;400;600&family=Roboto+Mono:wght@700&display=swap" rel="stylesheet">
 </head>
 <body>
+    <div class="symposium-banner" id="symposium-banner">
+        <span class="banner-text"><strong>Announcing Horizons of Play:</strong> A symposium on Computing, Media, and the Human Experience. Join us June 5th.</span>
+        <a href="events.html" class="banner-btn">Learn More</a>
+        <button id="close-banner" class="close-banner-btn" aria-label="Dismiss banner">&times;</button>
+    </div>
 
     <nav>
-        <div class="logo">&lt;SING_Lab /&gt;</div>
+        <a href="index.html" class="nav-brand">
+            <img src="media/sing-logo-test.png" alt="SING Lab Logo" class="brand-icon">
+        </a>
+        <button id="theme-toggle" class="theme-btn" aria-label="Toggle Dark Mode"></button>
+        <button class="hamburger" aria-label="Toggle navigation">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+        </button>
+
         <ul class="nav-links">
-            <li><a href="#about">About</a></li>
-            <li><a href="#research">Research</a></li>
-            <li><a href="#team">Team</a></li>
-            <li><a href="#publications">Publications</a></li>
+            <li><a href="index.html">About</a></li>
+            <li><a href="projects.html">Projects</a></li>
+            <li><a href="publications.html">Publications</a></li>
+            <li><a href="people.html">People</a></li>
+            <li><a href="events.html">Events</a></li>
         </ul>
     </nav>
 
     <header class="hero">
-        <div class="hero-content">
-            <h1>Engineering <br><span class="typewriter-text" id="typewriter"></span><span class="cursor">_</span></h1>
-            <p>We are a computer science research group exploring the intersection of artificial intelligence, social dynamics, and interactive storytelling in digital environments.</p>
-            <a href="#research" class="btn">Explore Our Work</a>
+        <div class="container hero-content">
+            <h1 id="glitch-target">Social Intelligence and Narrative in Games</h1>
+            <p>Bridging computer science, social dynamics, and the performing arts at UC Davis.</p>
         </div>
     </header>
 
-    <section id="about" class="container">
-        <h2 class="section-title">Initialize() { <span>Our Mission</span> }</h2>
-        <p>The SING Lab is dedicated to understanding and building computational models of human social intelligence to create more immersive, adaptive, and emotionally resonant interactive narratives in games.</p>
+    <section class="container pb-2 split-layout">
+        <div class="about-text">
+            <h2>Our Mission</h2>
+            <p>Founded at the intersection of artificial intelligence and interactive media, the SING Lab is dedicated to pushing the boundaries of how machines understand and generate human-like social interactions. We believe that the next leap in computing will not just be about processing data, but about understanding nuance, emotion, and story.</p>
+            <br>
+            <h2>What We Do</h2>
+            <p>Our work is deeply interdisciplinary. We draw upon computer science, cognitive psychology, and the performing arts to build robust computational models. Whether we are designing algorithmic storytellers that can dynamically adapt a narrative's pacing, or programming digital actors that understand the subtleties of stagecraft, our goal is to create systems that are expressively rich and highly responsive to human interaction.</p>
+        </div>
+        
+        <div class="about-image">
+            <img src="lab-photo.jpg" alt="The SING Lab Team" class="image-frame" style="min-height: 400px;">
+        </div>
+    </section>
+
+    <section id="research" class="container pt-0">
+        <h2>Core Research Areas</h2>
+        <div class="tab-container">
+            <div class="tab-buttons">
+                <button class="tab-btn active" onclick="openTab(event, 'social-ai')">Social AI</button>
+                <button class="tab-btn" onclick="openTab(event, 'interactive-narrative')">Interactive Narratives</button>
+                <button class="tab-btn" onclick="openTab(event, 'computational-performance')">Computational Performance</button>
+            </div>
+
+            <div id="social-ai" class="tab-content active">
+                <h3>Modeling Social Dynamics</h3>
+                <p>Exploring how artificial agents can perceive, reason about, and participate in complex social interactions within digital environments.</p>
+            </div>
+
+            <div id="interactive-narrative" class="tab-content">
+                <h3>Algorithmic Story Generation</h3>
+                <p>Focusing on the computational authoring of complex narratives, creating systems that autonomously generate compelling dramatic arcs, dynamic plotlines, and deeply expressive story worlds.</p>
+            </div>
+
+            <div id="computational-performance" class="tab-content">
+                <h3>Theatrical and Artistic Execution</h3>
+                <p>Bridging computer science and the performing arts by developing systems that model stagecraft and seek to enable human-like artistic performances in virtual spaces.</p>
+            </div>
+        </div>
     </section>
 
     <script src="script.js"></script>

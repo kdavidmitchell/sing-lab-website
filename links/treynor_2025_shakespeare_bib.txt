@@ -1,0 +1,8 @@
+@inproceedings{treynor_deescalation_2025,
+  title     = {Modeling Conflict De-Escalation in Shakespeare Through Hybrid NLP & Symbolic Approaches},
+  author    = {Treynor, Nicholas and Mitchell, Kyle and Toothman, Nick and Bloom, Gina and Milburn, Colin and Neff, Michael and McCoy, Joshua},
+  booktitle = {2025 IEEE Conference on Games (CoG)},
+  pages     = {1--2},
+  year      = {2025},
+  doi       = {10.1109/CoG64752.2025.11114309}
+}

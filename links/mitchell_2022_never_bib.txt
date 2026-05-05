@@ -1,0 +1,11 @@
+@article{mitchell_never_2022,
+  title     = {Never a Dull Moment: Believable Dynamic Character Beat Generation between Game World Events},
+  author    = {Mitchell, Kyle and Pettijohn, Camden and McCoy, Joshua},
+  journal   = {Proceedings of the AAAI Conference on Artificial Intelligence and Interactive Digital Entertainment (AIIDE)},
+  volume    = {18},
+  number    = {1},
+  pages     = {279--281},
+  year      = {2022},
+  month     = {Oct.},
+  doi       = {10.1609/aiide.v18i1.21974}
+}

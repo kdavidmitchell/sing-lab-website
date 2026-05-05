@@ -1,0 +1,11 @@
+@article{mitchell_modeling_2025,
+  title     = {Modeling the Internal Monologue: A Framework for Reconciling Authorial Intent with Agent Autonomy},
+  author    = {Mitchell, Kyle},
+  journal   = {Proceedings of the AAAI Conference on Artificial Intelligence and Interactive Digital Entertainment},
+  volume    = {21},
+  number    = {1},
+  pages     = {434--437},
+  year      = {2025},
+  month     = {Nov.},
+  doi       = {10.1609/aiide.v21i1.36854}
+}

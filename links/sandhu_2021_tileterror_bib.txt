@@ -1,0 +1,6 @@
+@inproceedings{sandhu_tileterror_2021,
+  title     = {TileTerror: A System for Procedurally Generating 2D Horror Maps},
+  author    = {Sandhu, Arunpreet and Mitchell, Kyle and McCoy, Joshua},
+  booktitle = {Experimental AI in Games (EXAG) Workshop at AIIDE},
+  year      = {2021}
+}

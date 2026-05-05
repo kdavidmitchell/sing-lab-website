@@ -1,0 +1,34 @@
+[
+  {
+    "title": "Stay Thy Blade",
+    "imageSrc": "media/projects/stb.png",
+    "imageAlt": "Stay Thy Blade interactive narrative interface",
+    "category": "Interactive Character Simulation",
+    "status": "Ongoing",
+    "description": "An experimental interactive experience that re-envisions iconic figures from William Shakespeare's plays as psychologically nuanced AI characters. Using a custom-designed character AI architecture integrated with Large Language Models, players engage in real-time dialogue to influence these characters' internal states. The core objective across all scenarios is to de-escalate their agitation and dissuade them from committing the tragic violence their stories are known for. Character responses emerge dynamically from their core personality traits, shifting emotional states, and evolving internal beliefs, serving as a robust testbed for believable, responsive digital actors."
+  },
+  {
+    "title": "The Glass Box Theatre",
+    "imageSrc": "media/projects/glass-box-theatre.jpg",
+    "imageAlt": "The Glass Box Theatre interactive performance interface",
+    "category": "Computational Performance & Digital Actors",
+    "status": "Ongoing",
+    "description": "An interactive drama experience pushing the boundaries of digital acting. Driven by a custom three-layer cognitive architecture inspired by the Stanislavskian acting method, the system’s core—'Viv'—allows digital actors to maintain highly subjective realities. Instead of relying on static scripts, characters dynamically translate player actions into personal beliefs, filter potential reactions through weighted personality traits, and use defeasible logic to resolve internal conflicts. The result is a profoundly reactive environment where actors generate physically and psychologically coherent performances in real-time."
+  },
+  {
+    "title": "College Ruled",
+    "imageSrc": "media/projects/college-ruled.jpg",
+    "imageAlt": "College Ruled social simulation interface",
+    "category": "Interactive Narrative & Social Simulation",
+    "status": "Ongoing",
+    "description": "A dynamic interactive narrative system exploring complex social dynamics and interpersonal relationships. College Ruled leverages advanced state tracking to simulate the nuanced, high-stakes environment of a digital community, allowing players to navigate a highly reactive environment where every dialogue choice fundamentally alters the simulated social fabric."
+  },
+  {
+    "title": "Alternation",
+    "imageSrc": "media/projects/alternation.jpg",
+    "imageAlt": "Alternation Interface",
+    "category": "Social AI & Procedurally-Generated Worlds",
+    "status": "Ongoing",
+    "description": "[Details to come.]"
+  }
+]

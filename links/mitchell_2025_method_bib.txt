@@ -1,0 +1,11 @@
+@article{mitchell_method_2025,
+  title     = {A Method to the Machine: An Architecture for Argument-Driven, Dynamic Character Performance},
+  author    = {Mitchell, Kyle and McCoy, Joshua},
+  journal   = {Proceedings of the AAAI Conference on Artificial Intelligence and Interactive Digital Entertainment},
+  volume    = {21},
+  number    = {1},
+  pages     = {287--296},
+  year      = {2025},
+  month     = {Nov.},
+  doi       = {10.1609/aiide.v21i1.36832}
+}

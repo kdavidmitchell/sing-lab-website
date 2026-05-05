@@ -1,0 +1,6 @@
+@article{sandhu_enhancing_2019,
+  title={Enhancing wave function collapse with design-level constraints},
+  author={Arunpreet Sandhu and Zeyuan Chen and Joshua Mccoy},
+  journal={Proceedings of the 14th International Conference on the Foundations of Digital Games},
+  year={2019}
+}

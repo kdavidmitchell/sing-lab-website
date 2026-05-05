@@ -1,0 +1,6 @@
+@inproceedings{sandhu_framework_2019,
+  title     = {A framework for integrating architectural design patterns into PCG},
+  author    = {Sandhu, Arunpreet and McCoy, Joshua},
+  booktitle = {Proceedings of the 14th International Conference on the Foundations of Digital Games},
+  year      = {2019}
+}

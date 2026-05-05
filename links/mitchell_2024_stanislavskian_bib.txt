@@ -1,0 +1,10 @@
+@inproceedings{mitchell_exploring_2024,
+  title     = {Exploring Stanislavskian Performance for Agent-based Nonplayer Characters through Defeasible Logic},
+  author    = {Mitchell, Kyle David and McCoy, Joshua},
+  booktitle = {Proceedings of the 24th ACM International Conference on Intelligent Virtual Agents},
+  publisher = {Association for Computing Machinery},
+  articleno = {44},
+  numpages  = {4},
+  year      = {2024},
+  doi       = {10.1145/3652988.3673953}
+}

@@ -1,0 +1,146 @@
+[
+  {
+    "year": "2025",
+    "papers": [
+      {
+        "title": "A Method to the Machine: An Architecture for Argument-Driven, Dynamic Character Performance",
+        "authors": "Kyle Mitchell, Joshua McCoy",
+        "venue": "Proceedings of the AAAI Conference on Artificial Intelligence and Interactive Digital Entertainment",
+        "details": "vol. 21, num. 1, pp. 287-296",
+        "links": {
+          "pdf": "links/mitchell_2025_method.pdf",
+          "bibtex": "links/mitchell_2025_method_bib.txt"
+        }
+      },
+      {
+        "title": "Modeling the Internal Monologue: A Framework for Reconciling Authorial Intent with Agent Autonomy",
+        "authors": "Kyle Mitchell",
+        "venue": "Proceedings of the AAAI Conference on Artificial Intelligence and Interactive Digital Entertainment",
+        "details": "vol. 21, num. 1, pp. 434-437",
+        "links": {
+          "pdf": "links/mitchell_2025_monologue.pdf",
+          "bibtex": "links/mitchell_2025_monologue_bib.txt"
+        }
+      },
+      {
+        "title": "A Case Study on User Perception of Parameterized LLM-Generated Narratives",
+        "authors": "Nicholas Sloss Treynor, Joshua McCoy",
+        "venue": "2025 IEEE Conference on Games (CoG)",
+        "details": "pp. 1-7",
+        "links": {
+          "pdf": "links/treynor_2025_perception.pdf",
+          "bibtex": "links/treynor_2025_perception_bib.txt"
+        }
+      },
+      {
+        "title": "Modeling Conflict De-Escalation in Shakespeare Through Hybrid NLP & Symbolic Approaches",
+        "authors": "Nicholas Treynor, Kyle Mitchell, Nick Toothman, Gina Bloom, Colin Milburn, Michael Neff, Joshua McCoy",
+        "venue": "2025 IEEE Conference on Games (CoG)",
+        "details": "pp. 1-2",
+        "links": {
+          "pdf": "links/treynor_2025_shakespeare.pdf",
+          "bibtex": "links/treynor_2025_shakespeare_bib.txt"
+        }
+      }
+    ]
+  },
+  {
+    "year": "2024",
+    "papers": [
+      {
+        "title": "College Ruled: A Pathfinding Approach to Generative Storytelling",
+        "authors": "Nicholas Sloss Treynor, Joshua McCoy",
+        "venue": "Proceedings of the 19th International Conference on the Foundations of Digital Games",
+        "links": {
+          "pdf": "links/treynor_2024_college.pdf",
+          "bibtex": "links/treynor_2024_college_bib.txt"
+        }
+      },
+      {
+        "title": "Exploring Stanislavskian Performance for Agent-based Nonplayer Characters through Defeasible Logic",
+        "authors": "Kyle David Mitchell, Joshua McCoy",
+        "venue": "Proceedings of the 24th ACM International Conference on Intelligent Virtual Agents",
+        "links": {
+          "pdf": "links/mitchell_2024_stanislavskian.pdf",
+          "bibtex": "links/mitchell_2024_stanislavskian_bib.txt"
+        }
+      }
+    ]
+  },
+  {
+    "year": "2023",
+    "papers": [
+      {
+        "title": "Towards an Agency-centered Ontology of Game Mechanics",
+        "authors": "Kyle Mitchell, Joshua McCoy",
+        "venue": "Proceedings of the 18th International Conference on the Foundations of Digital Games",
+        "details": "pp. 1-4",
+        "links": {
+          "pdf": "links/mitchell_2023_ontology.pdf",
+          "bibtex": "links/mitchell_2023_ontology_bib.txt"
+        }
+      }
+    ]
+  },
+  {
+    "year": "2022",
+    "papers": [
+      {
+        "title": "Never a Dull Moment: Believable Dynamic Character Beat Generation between Game World Events",
+        "authors": "Kyle Mitchell, Camden Pettijohn, Joshua McCoy",
+        "venue": "Proceedings of the AAAI Conference on Artificial Intelligence and Interactive Digital Entertainment (AIIDE)",
+        "details": "vol. 18, num. 1, pp. 279-281",
+        "links": {
+          "pdf": "links/mitchell_2022_never.pdf",
+          "bibtex": "links/mitchell_2022_never_bib.txt"
+        }
+      },
+      {
+        "title": "MICE in the Machine: Creating a computational model of novelist techniques.",
+        "authors": "Arunpreet Sandhu, Joshua McCoy",
+        "venue": "Proceedings of the Intelligent Narrative Technologies Workshop at AIIDE-23",
+        "links": {
+          "pdf": "links/sandhu_2022_mice.pdf",
+          "bibtex": "links/sandhu_2022_mice_bib.txt"
+        }
+      }
+    ]
+  },
+  {
+    "year": "2021",
+    "papers": [
+      {
+        "title": "TileTerror: A System for Procedurally Generating 2D Horror Maps",
+        "authors": "Arunpreet Sandhu, Kyle Mitchell, Joshua McCoy",
+        "venue": "Proceedings of the Experimental AI in Games (EXAG) Workshop at AIIDE-21",
+        "links": {
+          "pdf": "links/sandhu_2021_tileterror.pdf",
+          "bibtex": "links/sandhu_2021_tileterror_bib.txt"
+        }
+      }
+    ]
+  },
+  {
+    "year": "2019",
+    "papers": [
+      {
+        "title": "A framework for integrating architectural design patterns into PCG",
+        "authors": "Arunpreet Sandhu, Joshua McCoy",
+        "venue": "Proceedings of the 14th International Conference on the Foundations of Digital Games",
+        "links": {
+          "pdf": "links/sandhu_2019_framework.pdf",
+          "bibtex": "links/sandhu_2019_framework_bib.txt"
+        }
+      },
+      {
+        "title": "Enhancing wave function collapse with design-level constraints",
+        "authors": "Arunpreet Sandhu, Zeyuan Chen, Joshua McCoy",
+        "venue": "Proceedings of the 14th International Conference on the Foundations of Digital Games",
+        "links": {
+          "pdf": "links/sandhu_2019_enhancing.pdf",
+          "bibtex": "links/sandhu_2019_enhancing_bib.txt"
+        }
+      }
+    ]
+  }
+]
