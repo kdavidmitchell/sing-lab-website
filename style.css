@@ -363,10 +363,11 @@ nav {
 }
 
 .profile-pic {
-    width: 150px;
-    height: 150px;
+    width: 180px; /* Increased from 150px */
+    height: 180px; /* Increased from 150px */
     border-radius: 50%;
     object-fit: cover; /* Ensures non-square images aren't stretched */
+    object-position: center 10%; /* OPTIONAL FIX: Shifts the focus slightly upward if heads are being cut off */
     border: 3px solid var(--text-main);
     box-shadow: 4px 4px 0px var(--accent-gold);
     margin-bottom: 1.5rem;
@@ -654,6 +655,27 @@ nav {
 }
 
 /* =========================================
+   Call to Action (CTA) Buttons
+   ========================================= */
+.cta-btn {
+    display: inline-block;
+    background-color: var(--accent-gold);
+    color: var(--bg-main);
+    padding: 0.8rem 1.5rem;
+    text-decoration: none;
+    font-family: var(--font-mono);
+    font-weight: bold;
+    border-radius: 4px;
+    box-shadow: 4px 4px 0px var(--text-main);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.cta-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 4px 6px 0px var(--text-main);
+}
+
+/* =========================================
    10. 404 PAGE: INTERACTIVE TERMINAL
    ========================================= */
 .story-container {
@@ -935,6 +957,12 @@ body.dark-theme .banner-text strong {
     .hero p { font-size: 1.1rem; }
     .container { padding: 2.5rem 1.5rem; }
     
+    /* NEW: Hero Bracket Mobile Fixes */
+    .hero-content { padding: 1.5rem 2.5rem; }
+    .hero-content::before, .hero-content::after { font-size: 3rem; }
+    .hero-content::before { left: 0.5rem; }
+    .hero-content::after { right: 0.5rem; }
+    
     .tab-buttons { flex-direction: column; }
     .tab-btn { border-right: none; border-bottom: 2px solid var(--text-main); }
     .tab-btn:last-child { border-bottom: none; }
@@ -946,7 +974,8 @@ body.dark-theme .banner-text strong {
         gap: 1.5rem;
     }
     
-    .pub-item { padding: 1rem 0; }
+    /* UPDATED: Publication Card Mobile Fix */
+    .pub-item { padding: 1.25rem 1.5rem; } 
     .pub-container-box { padding: 1.5rem; }
 
     /* Collapse split layouts into a single column on mobile */
@@ -955,4 +984,148 @@ body.dark-theme .banner-text strong {
         grid-template-columns: 1fr;
         gap: 2rem;
     }
+
+    /* Fixes overflowing CTA buttons by making them full-width */
+    .cta-btn {
+        display: block;
+        width: 100%;
+        text-align: center;
+        box-sizing: border-box;
+        white-space: normal; /* Ensures long text wraps instead of breaking the layout */
+    }
+}
+
+/* =========================================
+   15. EASTER EGG: TERMINAL THEME OVERRIDE
+   ========================================= */
+body.terminal-theme {
+    --bg-main: #050505;
+    --bg-secondary: #0a0a0a;
+    --text-main: #00ff00; 
+    --text-muted: #00aa00;
+    --accent-blue: #00ff00;
+    --accent-gold: #00ff00;
+    --border-color: #004400;
+}
+
+/* Force Monospace and remove soft UI elements */
+body.terminal-theme * {
+    font-family: var(--font-mono) !important;
+    border-radius: 0 !important;
+    box-shadow: none !important;
+}
+
+/* Give images a retro green CRT monitor wash */
+body.terminal-theme img,
+body.terminal-theme .profile-pic,
+body.terminal-theme .image-frame {
+    filter: grayscale(100%) contrast(1.5) sepia(100%) hue-rotate(80deg) !important;
+    border: 2px solid #00ff00 !important;
+}
+
+/* --- THE HERO OVERRIDES --- */
+
+/* Convert the dot grid into a terminal wireframe grid */
+body.terminal-theme .hero,
+body.terminal-theme.dark-theme .hero {
+    background-color: #021102; /* Deepest green/black */
+    background-image: 
+        linear-gradient(rgba(0, 255, 0, 0.15) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(0, 255, 0, 0.15) 1px, transparent 1px);
+    background-size: 40px 40px; 
+    border-bottom: 2px solid #00ff00;
+}
+
+/* Convert the frosted glass into a glowing terminal prompt box */
+body.terminal-theme .hero-content,
+body.terminal-theme.dark-theme .hero-content {
+    background-color: rgba(5, 5, 5, 0.9);
+    border: 1px solid #00ff00;
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+    box-shadow: 0 0 20px rgba(0, 255, 0, 0.15); /* Soft neon glow */
+}
+
+/* Force the curly brackets to match the neon theme */
+body.terminal-theme .hero-content::before,
+body.terminal-theme .hero-content::after,
+body.terminal-theme.dark-theme .hero-content::before,
+body.terminal-theme.dark-theme .hero-content::after {
+    color: #00ff00;
+    opacity: 1;
+    text-shadow: 0 0 10px rgba(0, 255, 0, 0.5);
+}
+
+/* Disable the theme toggle while the terminal is active */
+body.terminal-theme #theme-toggle {
+    opacity: 0.2;
+    pointer-events: none; /* Prevents clicking */
+    cursor: not-allowed;
+    filter: grayscale(100%);
+}
+
+/* =========================================
+   16. EASTER EGG: UNSTABLE TEXT (SLICED)
+   ========================================= */
+.unstable-text {
+    cursor: help;
+    display: inline-block;
+    position: relative;
+    /* Instant color transition so the base text disappears immediately on hover */
+    transition: color 0s; 
+}
+
+/* Duplicates the text twice so we can manipulate the halves */
+.unstable-text::before,
+.unstable-text::after {
+    content: attr(data-text);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    color: var(--accent-gold);
+    opacity: 0; /* Hidden until hover */
+    pointer-events: none;
+}
+
+/* Crops this layer so ONLY the top 50% is visible */
+.unstable-text::before {
+    clip-path: polygon(0 0, 100% 0, 100% 50%, 0 50%);
+}
+
+/* Crops this layer so ONLY the bottom 50% is visible */
+.unstable-text::after {
+    clip-path: polygon(0 50%, 100% 50%, 100% 100%, 0 100%);
+}
+
+/* The Hover Trigger */
+.unstable-text:hover {
+    color: transparent; /* Hides the original text */
+}
+
+/* Reveal and animate the halves */
+.unstable-text:hover::before {
+    opacity: 1;
+    animation: snap-right 0.2s cubic-bezier(0.25, 1, 0.5, 1) 1;
+}
+
+.unstable-text:hover::after {
+    opacity: 1;
+    animation: snap-left 0.2s cubic-bezier(0.25, 1, 0.5, 1) 1;
+}
+
+/* Keyframes for the sharp, mechanical snap */
+@keyframes snap-right {
+    0%   { transform: translateX(0); }
+    15%  { transform: translateX(8px); }
+    85%  { transform: translateX(8px); }
+    100% { transform: translateX(0); }
+}
+
+@keyframes snap-left {
+    0%   { transform: translateX(0); }
+    15%  { transform: translateX(-8px); }
+    85%  { transform: translateX(-8px); }
+    100% { transform: translateX(0); }
 }

@@ -1,3 +1,17 @@
+// =========================================
+// EASTER EGG 1: The Recruitment Node
+// =========================================
+const asciiArt = `
+  ____ ___ _   _  ____ 
+ / ___|_ _| \\ | |/ ___|
+ \\___ \\| ||  \\| | |  _ 
+  ___) | || |\\  | |_| |
+ |____/___|_| \\_|\\____|
+`;
+console.log(`%c${asciiArt}`, "color: #B38F00; font-family: monospace; font-weight: bold;");
+console.log("%cWelcome to the SING Lab.", "color: #B38F00; font-size: 16px; font-weight: bold;");
+console.log("%cYou have discovered a hidden narrative branch. If you are reading this, you clearly have the curiosity required for expressive intelligence research. Introduce yourself at our next event.", "color: #3A4F6B; font-style: italic;");
+
 // A dictionary of clean SVG paths for our social icons
 const svgIcons = {
     github: '<svg viewBox="0 0 16 16"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.012 8.012 0 0 0 16 8c0-4.42-3.58-8-8-8z"/></svg>',
@@ -378,6 +392,14 @@ if (themeToggle) {
 }
 
 // =========================================
+// EASTER EGG: Terminal Theme Persistence
+// =========================================
+// Check if the user previously activated the terminal theme
+if (localStorage.getItem('sing-lab-terminal') === 'active') {
+    document.body.classList.add('terminal-theme');
+}
+
+// =========================================
 // Global Banner Dismissal Logic
 // =========================================
 const banner = document.getElementById('symposium-banner');
@@ -393,5 +415,50 @@ if (banner && closeBannerBtn) {
     closeBannerBtn.addEventListener('click', () => {
         banner.style.display = 'none';
         localStorage.setItem('sing-banner-dismissed', 'true');
+    });
+}
+
+// =========================================
+// EASTER EGG 2: The Konami Terminal
+// =========================================
+// Sequence: Up, Up, Down, Down, Left, Right, Left, Right, B, A
+const konamiCode = ['ArrowUp', 'ArrowUp', 'ArrowDown', 'ArrowDown', 'ArrowLeft', 'ArrowRight', 'ArrowLeft', 'ArrowRight', 'b', 'a'];
+let konamiIndex = 0;
+
+document.addEventListener('keydown', (e) => {
+    // Normalize to lowercase so 'B' or 'b' works
+    const key = e.key.length === 1 ? e.key.toLowerCase() : e.key;
+    
+    if (key === konamiCode[konamiIndex]) {
+        konamiIndex++;
+        if (konamiIndex === konamiCode.length) {
+            // Toggle the class and capture whether it is now active or not
+            const isTerminalActive = document.body.classList.toggle('terminal-theme');
+            
+            // Save or remove the state in localStorage based on the toggle
+            if (isTerminalActive) {
+                localStorage.setItem('sing-lab-terminal', 'active');
+                console.log("%cTERMINAL OVERRIDE ENGAGED", "color: #00ff00; font-family: monospace; font-size: 14px; font-weight: bold;");
+            } else {
+                localStorage.removeItem('sing-lab-terminal');
+                console.log("%cTERMINAL OVERRIDE DISENGAGED", "color: #00ff00; font-family: monospace; font-size: 14px; font-weight: bold;");
+            }
+            
+            konamiIndex = 0; // Reset sequence
+        }
+    } else {
+        konamiIndex = 0; // Reset if they mess up the sequence
+    }
+});
+
+// =========================================
+// EASTER EGG 3: Unstable Narrative Node
+// =========================================
+const unstableText = document.querySelector('.unstable-text');
+
+if (unstableText) {
+    unstableText.addEventListener('click', () => {
+        // Drop them straight into the text-adventure 404 page
+        window.location.href = '404.html';
     });
 }

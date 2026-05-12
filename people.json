@@ -7,10 +7,10 @@
         "role": "Lab Director & Assistant Professor in Computer Science and Cinema and Digital Media",
         "bio": "In his role as Assistant Professor at UC Davis in the departments of Computer Science and Cinema and Digital Media, Josh is a game developer, computer scientist and cross-disciplinary researcher whose work lies at the confluence of game technology, social science, artificial intelligence and design. His goal is to create playable experiences that communicate to broad audiences and critically address the challenges present in our society while expanding the boundaries of technology. The most recent products of his research involve combining artificial intelligence techniques with social science to create meaningful, responsive and socially engaging game experiences.",
         "imageSrc": "media/people/josh.jpg",
-        "email": "janedoe@ucdavis.edu",
+        "email": "jamccoy@ucdavis.edu",
         "socials": {
-          "website": "https://janedoe.com",
-          "github": "https://github.com/janedoe",
+          "website": "https://joshmccoy.com/",
+          "github": "https://github.com/dr-jam",
           "twitter": "https://twitter.com/janedoe"
         }
       }
@@ -24,10 +24,10 @@
         "role": "Ph.D. Student",
         "bio": "Arunpreet Sandhu is a PhD student in the Dept. of Computer Science. He is currently working on Procedural Content Generation with a focus on narratives and level design.",
         "imageSrc": "media/people/arunpreet.jpeg",
-        "email": "janedoe@ucdavis.edu",
+        "email": "asisandhu@ucdavis.edu",
         "socials": {
           "website": "https://janedoe.com",
-          "github": "https://github.com/janedoe",
+          "github": "https://github.com/CandhuSandhu",
           "twitter": "https://twitter.com/janedoe"
         }
       },
@@ -36,10 +36,10 @@
         "role": "Ph.D. Candidate",
         "bio": "Kyle Mitchell is a PhD candidate in the Dept. of Computer Science. His core research areas currently include: game agent believability, AI-driven game design, and heterogeneous systems design/implementation. Ongoing research includes the design and implementation of an AI system called \"victoria in victus,\" or Viv. Viv will create more believable and dynamic AI characters for video games by combining the strengths of logical reasoning and reactive behavior.",
         "imageSrc": "media/people/kyle.png",
-        "email": "janedoe@ucdavis.edu",
+        "email": "kdmitch@ucdavis.edu",
         "socials": {
           "website": "https://janedoe.com",
-          "github": "https://github.com/janedoe",
+          "github": "https://github.com/kdavidmitchell",
           "twitter": "https://twitter.com/janedoe"
         }
       },
@@ -48,10 +48,10 @@
         "role": "Ph.D. Student",
         "bio": "Nicholas Treynor is a PhD student in the Dept. of Computer Science. He specializes in AI-driven storytelling and integrated systems. Nick works primarily on furthering interactive story generation, employing a mixture of classical AI techniques to solve planning tasks, alongside LLMs to aid in text generation within a hybrid system to tackle complex design challenges in storytelling and player interaction. His broader research approach within the center involves integrating classical AI techniques—such as expert systems, state-space search, and graph traversal—with contemporary machine learning approaches to develop AI-driven interactive experiences and tools, with a particular focus on storytelling.",
         "imageSrc": "media/people/nicholas.jpeg",
-        "email": "janedoe@ucdavis.edu",
+        "email": "ntreynor@ucdavis.edu",
         "socials": {
           "website": "https://janedoe.com",
-          "github": "https://github.com/janedoe",
+          "github": "https://github.com/NTreynor",
           "twitter": "https://twitter.com/janedoe"
         }
       }
